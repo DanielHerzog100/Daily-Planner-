@@ -6,8 +6,8 @@ var description = $(this).siblings(".description").val()
   localStorage.setItem(timeId , description) 
 })
   
-// const currentHour = new Date().getHours()
-const currentHour = 104
+const currentHour = new Date().getHours()
+
     $('div[id^="block-"]').each (function(){
     var timeId = $(this).attr("id")
         var description = localStorage.getItem(timeId)
@@ -22,3 +22,10 @@ const currentHour = 104
             $(this).addClass("present")
         }
 })
+
+function currentDate() {
+    var day = moment().format("dddd MMMM, Do");
+    $("#currentDay").text("Today's Date is " + day + " at " + time);
+}
+currentDate();
+setInterval(currentDate, 1000)
